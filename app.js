@@ -20,9 +20,9 @@ date = date.toString()
 
 
 var client = zendesk.createClient({
-  username:  'john.spriggs@vizexplorer.com', //Update your email address
-  token:     'cx6GDL27A4NjmdfHQdpL7LmDV61I8xPQqtIJK62m',
-  remoteUri: 'https://vizexplorersupport.zendesk.com/api/v2'
+  username:  '<zendesk email address>',
+  token:     '<zendesk token>',
+  remoteUri: '<Zendesk URL>'
 });
 //
 // function writeLog(a){
