@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<% var  %>
+  <head>
+    <title></title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+  </head>
+  <body>
+    <div class="ui">
+      <h4>tickets: </h4>
+      <table class="ui celled tablee">
+          <thead>
+            <th>Ticket ID</th>
+            <th>Ticket Status</th>
+            <th>Closed Date</th>
+            <th>Requester's Name</th>
+            <th>Requester's E-Mail</th>
+            <th>Current Survey Status</th>
+          </tr>
+        </thead>
+        <tbody>
+      <% tickets.forEach(function(ticket){ %>
+        <tr data-href='https://vizexplorersupport.zendesk.com/agent/tickets/<%= ticket.ticketID %>'>
+          <td><%= ticket.id %></td>
+          <td><%= ticket.status %></td>
+          <td><%= ticket.closed %></td>
+          <td><%= ticket.user %></td>
+          <td><%= ticket.email %></td>
+          <td><%= ticket.survey %></td>
+        </tr>
+      <% }); %>
+      </tbody>
+    </table>
+    </div>
+
+  </body>
+</html>
