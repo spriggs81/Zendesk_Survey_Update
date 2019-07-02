@@ -7,8 +7,8 @@ var app = express();
 var port = 5555,
     ip   = 'localhost';
 
-var idNumbers = [];
-var showTickets='';
+var idNumbers = '';
+var showTickets = '';
 var tickets = [];
 var users = [];
 var message = '';
@@ -55,6 +55,7 @@ app.get('/', function(req,res){
 app.get('/searches', function(req,res){
   var rawTickets= [];
   tickets=[];
+  var rawIds = [];
   var startDate = "2019-05-01";
   var endDate   = "2019-06-20";
   var query     = 'updated_at>"' + startDate + '"updated_at<"' + endDate + '"+status=closed';
@@ -69,15 +70,11 @@ app.get('/searches', function(req,res){
         ticketRequester: rawticket.requester_id,
         closeDate: rawticket.updated_at
       }
-      tickets.forEach(function(ticket){
-        if(newTicket.ticketRequester != ticket.ticketRequester)
-
-      })
-      }
-      tickets.push(ticket)
-      idNumbers.push(ticket.ticketRequester);
-
-      return idNumbers, tickets;
+      tickets.push(rawticket)
+      rawIds.push(ticket.ticketRequester);
+    });
+    idNumbers = rawIds;
+    return idNumbers, tickets;
     });
       client.users.showMany(idNumbers, function(err, req, result){
         if(err){
