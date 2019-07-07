@@ -1,15 +1,10 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-<% var  %>
-  <head>
-    <title></title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
-  </head>
-  <body>
+<% include ./partials/header.ejs %>
+
     <div class="ui">
-      <h4>tickets: </h4>
-      <table class="ui celled tablee">
+      <% if(tickets){ %>
+      <table class="ui celled table">
           <thead>
+            <th>#</th>
             <th>Ticket ID</th>
             <th>Ticket Status</th>
             <th>Closed Date</th>
@@ -19,8 +14,10 @@
           </tr>
         </thead>
         <tbody>
+      <% var i = 1; %>
       <% tickets.forEach(function(ticket){ %>
-        <tr data-href='https://vizexplorersupport.zendesk.com/agent/tickets/<%= ticket.ticketID %>'>
+        <tr class="clickable" onclick="window.open('https://vizexplorersupport.zendesk.com/agent/tickets/<%= ticket.ticketID %>')">
+          <td><%= i %></td>
           <td><%= ticket.id %></td>
           <td><%= ticket.status %></td>
           <td><%= ticket.closed %></td>
@@ -28,10 +25,16 @@
           <td><%= ticket.email %></td>
           <td><%= ticket.survey %></td>
         </tr>
-      <% }); %>
+        <% i++; %>
+      <% }) %>
       </tbody>
     </table>
     </div>
-
-  </body>
-</html>
+    <form method="POST" action="/update">
+      <input class="bye" type="text" name="id_numbers" value="<%= ids %>">
+      <button type="submit" class="fluid ui inverted primary button">Update Surveys To "Yes"</button>
+    </form>
+    <% } else { %>
+      <h1 class="ui center aligned huge header">Sorry, Nothing was found</h1>
+    <% } %>
+<% include ./partials/footer.ejs %>

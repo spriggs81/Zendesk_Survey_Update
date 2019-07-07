@@ -1,0 +1,18 @@
+<% include ./partials/header.ejs %>
+
+  results.forEach(function(status){
+    <div class="ui message">
+      <div class="header">
+        Found Error
+      </div>
+      <ul class="list">
+        <li>Status: <%= status.status %></li>
+        <li>Message: <%= status.message %></li>
+        <li>Result Message: <%= status.resultMessage %></li>
+        <li>Result Status: <%= status.resultStatus %></li>
+      </ul>
+      <a href="<%= status.url %>" target="_blank" class="ui inverted blue button">JSON Message from API</a>
+      please let me know if you run into problems with this app.
+    </div>
+
+<% include ./partials/footer.ejs %>

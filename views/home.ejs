@@ -1,12 +1,41 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <!-- <meta charset="utf-8"> -->
-    <title></title>
-  </head>
-  <body>
-    <div class="ui">
-      <h1>Hello World</h1>
+<% include ./partials/header.ejs %>
+
+<form class="ui form" action="/searches" method="POST">
+  <div class="field">
+    <label>Start Date:</label>
+    <div class="ui form">
+      <div class="fields">
+        <div class="field">
+          <input name="sm" type="text" placeholder="Month" maxlength="2">
+        </div>
+        <div class="field">
+          <input name="sd" type="text" placeholder="Day" maxlength="2">
+        </div>
+        <div class="field">
+          <input name="sy" type="text" placeholder="Year" maxlength="4">
+        </div>
+      </div>
     </div>
-  </body>
-</html>
+      <!-- <input type="date" name="start" placeholder="yyyy-mm-dd"> -->
+    </div>
+  </div>
+  <div class="field">
+    <label>End Date:</label>
+    <div class="ui form">
+      <div class="fields">
+        <div class="field">
+          <input name="em" type="text" placeholder="Month" maxlength="2">
+        </div>
+        <div class="field">
+          <input name="ed" type="text" placeholder="Day" maxlength="2">
+        </div>
+        <div class="field">
+          <input name="ey" type="text" placeholder="Year" maxlength="4">
+        </div>
+      </div>
+    </div>
+  </div>
+  <button class="ui button" type="submit">Submit</button>
+</form>
+
+<% include ./partials/footer.ejs %>

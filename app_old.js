@@ -2,9 +2,9 @@ var zendesk = require('node-zendesk');
 var fs      = require('fs');
 
 var client = zendesk.createClient({
-  username:  'john.spriggs@vizexplorer.com',
-  token:     'cx6GDL27A4NjmdfHQdpL7LmDV61I8xPQqtIJK62m',
-  remoteUri: 'https://vizexplorersupport.zendesk.com/api/v2'
+  username:  'username',
+  token:     '{token}',
+  remoteUri: 'https://{domain}.zendesk.com/api/v2'
 });
 
 // client.users.list(function (err, req, result) {
@@ -31,13 +31,13 @@ var client = zendesk.createClient({
 // })
 
 //
-client.users.show(22406471568, function(err, req, result){
-  if(err){
-    console.log(err);
-  } else{
-    console.log("user data:  "+JSON.stringify(result, null, 2, true));
-  }
-})
+// client.users.show(22406471568, function(err, req, result){
+//   if(err){
+//     console.log(err);
+//   } else{
+//     console.log("user data:  "+JSON.stringify(result, null, 2, true));
+//   }
+// })
 
 // client.tickets.exportAudit(13700, function(err, req, result){
 //   if(err){
@@ -112,13 +112,13 @@ client.users.show(22406471568, function(err, req, result){
 //     console.log("The file was succesfully saved!");
 // });
 
-// client.users.update(383304716133,{"user":{"user_fields":{ "send_survey": "yes" }}}, function(err, req, result){
-//   if(err){
-//     console.log(err);
-//   } else {
-//     console.log(result);
-//   }
-// })
+client.users.update(383304716133,{"user":{"user_fields":{ "send_survey": "no" }}}, function(err, req, result){
+  if(err){
+    console.log(err);
+  } else {
+    console.log(result);
+  }
+})
 
 // var myComms = [];
 // client.tickets.getComments(13080, function(err, req, result){

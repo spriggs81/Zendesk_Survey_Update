@@ -1,19 +1,18 @@
 {
   "name": "zendesk",
-  "version": "1.0.0",
+  "version": "1.0.5",
   "description": "",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
+  "author": "John Spriggs",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.19.0",
     "ejs": "^2.6.2",
     "express": "^4.17.1",
-    "fs": "0.0.1-security",
-    "node-zendesk": "^1.4.0",
-    "semantic-ui-css": "^2.4.1"
+    "node-zendesk": "^1.4.0"
   }
 }

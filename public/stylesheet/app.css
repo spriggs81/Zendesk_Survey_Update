@@ -1,0 +1,9 @@
+.clickable:hover{
+  background-color: black;
+  color: white;
+  cursor: pointer;
+}
+
+.bye{
+  display: none;
+}
